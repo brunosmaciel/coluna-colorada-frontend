@@ -16,7 +16,8 @@ export const Container = styled.section`
   p {
     font-size: ${({ theme }) => theme.font.sizes.medium};
     display: block;
-    width: 70%;
+    width: auto;
+    max-width: 70%;
     margin: ${({ theme }) => theme.spacings.small};
   }
   figure {
@@ -25,13 +26,11 @@ export const Container = styled.section`
     max-width: 70%;
     margin-top: ${({ theme }) => theme.spacings.medium};
   }
-  /* img {
-    height: 100%;
-    width: 100%;
-  } */
+
   figcaption {
     font-style: italic;
     margin-top: ${({ theme }) => theme.spacings.small};
+    align-self: center;
   }
 `;
 

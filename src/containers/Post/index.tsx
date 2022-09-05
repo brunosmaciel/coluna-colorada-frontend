@@ -13,6 +13,7 @@ export default function PostPage({ post }: SinglePostProps) {
   return (
     <>
       <Header />
+      <h1>{post.attributes.createdAt}</h1>
       <Container
         dangerouslySetInnerHTML={{ __html: post.attributes.content }}
       ></Container>

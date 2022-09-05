@@ -4,11 +4,9 @@ import { Container } from './styled';
 export default function Footer() {
   return (
     <Container>
-      <div>
-        <Link href="/">
-          <a>Feito por Bruno Maciel</a>
-        </Link>
-      </div>
+      <Link href="https://github.com/brunosmaciel">
+        <a target="_blank">Feito por Bruno Maciel ♥</a>
+      </Link>
     </Container>
   );
 }

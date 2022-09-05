@@ -1,17 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.header`
-  background-color: ${({ theme }) => theme.colors.red};
-  color: ${({ theme }) => theme.colors.white};
-  height: 4rem;
-  div {
-    height: 100%;
-    max-width: 80%;
-    background-color: transparent;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${({ theme }) => theme.font.sizes.medium};
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.primary};
+    font-size: ${theme.font.sizes.large};
+    padding: ${theme.spacings.medium};
+    text-align: center;
+    box-shadow: 1px 5px 15px 3px rgba(0, 0, 0, 0.3);
+  `}
+  a {
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+  a:hover {
+    opacity: 0.9;
   }
 `;

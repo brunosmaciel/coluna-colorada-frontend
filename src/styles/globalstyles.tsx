@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     outline:none;
+    
   }
   html,
   body {
@@ -22,7 +23,11 @@ const GlobalStyle = createGlobalStyle`
     color:${({ theme }) => theme.colors.white};
     text-decoration:none;
   }
-
+  .__next{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+  }
   
 `;
 
