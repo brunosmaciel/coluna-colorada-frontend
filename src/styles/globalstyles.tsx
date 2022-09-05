@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-size:62.5%;
   }
   a{
-    color:${({ theme }) => theme.colors.white};
+    color:${({ theme }) => theme.colors.secondary};
     text-decoration:none;
   }
   .__next{
