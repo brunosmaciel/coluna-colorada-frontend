@@ -1,21 +1,28 @@
 import { GetStaticProps } from 'next';
 import PostPage from '../../containers/Post';
+import { SingleAuthor } from '../../domain/author/authors';
 import { PostData } from '../../domain/posts/post';
+import { getAuthor } from '../../services/get-author';
 import { getAllPosts } from '../../services/posts/get-all-posts';
 import { getSinglePost } from '../../services/posts/get-one-post';
 
 export type SinglePostProps = {
   post: PostData;
+  author: SingleAuthor
 };
 
-export default function SinglePost({ post }: SinglePostProps) {
-  return <PostPage post={post} />;
+export default function SinglePost({ ...props }: SinglePostProps) {
+  return <PostPage {...props} />;
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const post = await getSinglePost(context.params.slug);
+  const author = await getAuthor(post.attributes.author.data.id)
   return {
-    props: { post },
+    props: {
+      post,
+      author
+    },
     revalidate: 30,
   };
 };

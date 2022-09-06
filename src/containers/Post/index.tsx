@@ -1,25 +1,54 @@
 import Footer from '../../components/Footer';
-import 'tailwindcss/tailwind.css';
 
 import Header from '../../components/Header';
 import { PostData } from '../../domain/posts/post';
-import { Container } from './styles';
+import toLocaleTimeString from '../../services/to-local-timeString';
+import {
+  AuthorContainer,
+  AuthorDetails,
+  AuthorImage,
+  Container,
+  PostContainer,
+  PostDate,
+} from './styles';
+import { MdDateRange } from 'react-icons/md';
+import { SingleAuthor } from '../../domain/author/authors';
 
 export type SinglePostProps = {
   post: PostData;
+  author: SingleAuthor;
 };
 
-export default function PostPage({ post }: SinglePostProps) {
+export default function PostPage({ ...props }: SinglePostProps) {
+  const { post } = props;
+  const { author } = props;
+  console.log(author);
   return (
     <>
       <Header />
-      {/* <h1>{post.attributes.createdAt}</h1> */}
-      <Container
-        dangerouslySetInnerHTML={{ __html: post.attributes.content }}
-      ></Container>
-      {/* <AuthorContainer className="bg-red-800">
-        {post.attributes.author.data.attributes.name}
-      </AuthorContainer> */}
+      <Container>
+        <PostContainer
+          dangerouslySetInnerHTML={{ __html: post.attributes.content }}
+        />
+        <PostDate>
+          <span>Publicado em</span>
+          <span>
+            <MdDateRange size={18} />
+          </span>
+          {toLocaleTimeString(post.attributes.createdAt)}
+        </PostDate>
+        <AuthorContainer>
+          <AuthorImage
+            src={author.attributes.photo.data.attributes.formats.thumbnail.url}
+            alt=""
+          />
+          <AuthorDetails className="wrapper">
+            <h1>{author.attributes.name}</h1>
+            <p>{author.attributes.biography}</p>
+          </AuthorDetails>
+        </AuthorContainer>
+      </Container>
+
       <Footer />
     </>
   );

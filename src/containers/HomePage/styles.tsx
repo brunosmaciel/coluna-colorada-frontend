@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   width: 100%;
+  min-height: calc(100vh - 8.8rem);
   padding: ${({ theme }) => theme.spacings.large};
   max-width: 100rem;
   margin: 0 auto;
