@@ -47,7 +47,7 @@ export const PostDate = styled.div`
     align-self: flex-start;
     opacity: 0.7;
     font-size: ${theme.font.sizes.small};
-    margin: ${theme.spacings.small} 0;
+    margin: ${theme.spacings.large} 0 0 0;
     display: flex;
     align-items: center;
     span {
@@ -59,7 +59,7 @@ export const AuthorContainer = styled.div`
   ${({ theme }) => css`
     border: 1px solid rgba(194, 12, 24, 0.5);
     border-radius: 0.5rem;
-    margin: 12rem 0 7rem 0;
+    margin: 9rem 0 7rem 0;
     padding: ${theme.spacings.medium};
     align-self: flex-start;
     display: flex;
@@ -77,7 +77,6 @@ export const AuthorDetails = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: ${theme.spacings.medium};
-
     h1 {
       font-size: ${theme.font.sizes.large};
     }

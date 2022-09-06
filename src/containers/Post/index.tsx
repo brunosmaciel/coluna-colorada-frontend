@@ -11,7 +11,7 @@ import {
   PostContainer,
   PostDate,
 } from './styles';
-import { MdDateRange } from 'react-icons/md';
+import { GrBlog } from 'react-icons/gr';
 import { SingleAuthor } from '../../domain/author/authors';
 
 export type SinglePostProps = {
@@ -22,21 +22,21 @@ export type SinglePostProps = {
 export default function PostPage({ ...props }: SinglePostProps) {
   const { post } = props;
   const { author } = props;
-  console.log(author);
   return (
     <>
       <Header />
       <Container>
+        <PostDate>
+          <span>
+            <GrBlog size={18} />
+          </span>
+          <span>Em</span>
+          {toLocaleTimeString(post.attributes.createdAt)}
+          <span>por {author.attributes.name}</span>
+        </PostDate>
         <PostContainer
           dangerouslySetInnerHTML={{ __html: post.attributes.content }}
         />
-        <PostDate>
-          <span>Publicado em</span>
-          <span>
-            <MdDateRange size={18} />
-          </span>
-          {toLocaleTimeString(post.attributes.createdAt)}
-        </PostDate>
         <AuthorContainer>
           <AuthorImage
             src={author.attributes.photo.data.attributes.formats.thumbnail.url}
