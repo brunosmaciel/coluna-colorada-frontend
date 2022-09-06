@@ -8,7 +8,7 @@ import { getSinglePost } from '../../services/posts/get-one-post';
 
 export type SinglePostProps = {
   post: PostData;
-  author: SingleAuthor
+  author: SingleAuthor;
 };
 
 export default function SinglePost({ ...props }: SinglePostProps) {
@@ -17,11 +17,11 @@ export default function SinglePost({ ...props }: SinglePostProps) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const post = await getSinglePost(context.params.slug);
-  const author = await getAuthor(post.attributes.author.data.id)
+  const author = await getAuthor(post.attributes.author.data.id);
   return {
     props: {
       post,
-      author
+      author,
     },
     revalidate: 30,
   };
