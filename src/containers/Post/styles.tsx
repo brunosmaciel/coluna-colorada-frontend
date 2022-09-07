@@ -40,6 +40,19 @@ export const PostContainer = styled.article`
     float: right;
     margin: ${({ theme }) => theme.spacings.large};
   }
+
+  animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  @keyframes fade-in-fwd {
+    0% {
+      transform: translateZ(-80px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
 `;
 
 export const PostDate = styled.div`

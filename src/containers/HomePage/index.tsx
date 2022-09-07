@@ -26,7 +26,11 @@ export default function HomePage({ posts }: HomePageProps) {
       <Container>
         {posts.map((post) => (
           <>
-            <PostContainer onClick={() => handleClick(post)} className="div1">
+            <PostContainer
+              onClick={() => handleClick(post)}
+              className=".roll-in-left"
+              key={post.attributes.slug}
+            >
               <PostCover src={post.attributes.cover.data.attributes.url} />
               <PostCategory>
                 {toUpperCase(post.attributes.category.data.attributes.name)}

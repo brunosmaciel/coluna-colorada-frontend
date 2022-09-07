@@ -7,7 +7,8 @@ export const Container = styled.header`
     font-size: ${theme.font.sizes.large};
     padding: ${theme.spacings.medium};
     text-align: center;
-    box-shadow: 1px 4px 15px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0.4px 5.3px rgba(0, 0, 0, 0.008),
+      0px 1.3px 17.9px rgba(0, 0, 0, 0.012), 0px 6px 80px rgba(0, 0, 0, 0.02);
   `}
   a {
     color: ${({ theme }) => theme.colors.secondary};
