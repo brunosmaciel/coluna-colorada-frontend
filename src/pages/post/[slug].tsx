@@ -23,7 +23,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       post,
       author,
     },
-    revalidate: 30,
   };
 };
 export async function getStaticPaths() {
