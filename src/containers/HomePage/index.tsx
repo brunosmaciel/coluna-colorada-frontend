@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -22,6 +23,13 @@ export default function HomePage({ posts }: HomePageProps) {
   };
   return (
     <>
+      <Head>
+        <title>Coluna Colorada</title>
+        <meta
+          name="description"
+          content="Um blog de uma estudante de jornalismo apaixonado pelo Sport Club Internacional"
+        />
+      </Head>
       <Header />
       <Container>
         {posts.map((post) => (

@@ -13,6 +13,9 @@ import {
 } from './styles';
 import { GrBlog } from 'react-icons/gr';
 import { SingleAuthor } from '../../domain/author/authors';
+import Head from 'next/head';
+
+import { Comments } from '../../components/Comments';
 
 export type SinglePostProps = {
   post: PostData;
@@ -22,8 +25,13 @@ export type SinglePostProps = {
 export default function PostPage({ ...props }: SinglePostProps) {
   const { post } = props;
   const { author } = props;
+
   return (
     <>
+      <Head>
+        <title>{post.attributes.title} - Coluna Colorada</title>
+        <meta name="description" content={post.attributes.slug} />
+      </Head>
       <Header />
       <Container>
         <PostDate>
@@ -48,7 +56,11 @@ export default function PostPage({ ...props }: SinglePostProps) {
           </AuthorDetails>
         </AuthorContainer>
       </Container>
-
+      <Comments
+        id={String(post.id)}
+        title={post.attributes.title}
+        slug={post.attributes.slug}
+      />
       <Footer />
     </>
   );

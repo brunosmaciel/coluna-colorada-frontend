@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.section`
   width: 100%;
   padding: 0.5rem 3rem;
-  max-width: 96rem;
+  max-width: 86rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@ export const PostContainer = styled.article`
   p {
     font-size: ${({ theme }) => theme.font.sizes.medium};
     display: block;
-    text-align: center;
+    text-align: justify;
     margin-top: ${({ theme }) => theme.spacings.large};
     line-break: strict;
   }
