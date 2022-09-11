@@ -1,3 +1,4 @@
+import { DISQUS_URL } from '../../config/app-config';
 import { Container, Disqus } from './styled';
 
 export type CommentsProps = {
@@ -11,7 +12,7 @@ export const Comments = ({ id, title, slug }: CommentsProps) => {
       <Disqus
         shortname="colunacolorada"
         config={{
-          url: `http://vcap.me:3000/post/${slug}`,
+          url: `${DISQUS_URL}/post/${slug}`,
           identifier: String(id),
           title: title,
           language: 'pt_BR',

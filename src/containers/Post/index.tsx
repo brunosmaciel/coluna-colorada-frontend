@@ -31,6 +31,7 @@ export default function PostPage({ ...props }: SinglePostProps) {
       <Head>
         <title>{post.attributes.title} - Coluna Colorada</title>
         <meta name="description" content={post.attributes.slug} />
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
       </Head>
       <Header />
       <Container>

@@ -4,3 +4,5 @@ export const AUTHOR_URL = `${BASE_URL}/author`;
 
 export const QUERY_GET_LAST_3_POSTS =
   '&paginatio[page]=1&pagination[pageSize]=3';
+
+export const DISQUS_URL = process.env.DISQUSURL || 'http://vcap.me:3000';
