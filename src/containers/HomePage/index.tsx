@@ -33,7 +33,7 @@ export default function HomePage({ posts }: HomePageProps) {
           type="image/png"
           sizes="16x16"
           rel="icon"
-          href="https://res.cloudinary.com/blog-strapi-curso-js/image/upload/v1662984344/favicon_s6tyqn.png"
+          href="https://res.cloudinary.com/blog-strapi-curso-js/image/upload/v1662984757/favicon_2_sh8jja.png"
         />
       </Head>
       <Header />
