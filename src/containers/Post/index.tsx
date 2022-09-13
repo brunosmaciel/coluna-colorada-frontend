@@ -31,7 +31,12 @@ export default function PostPage({ ...props }: SinglePostProps) {
       <Head>
         <title>{post.attributes.title} - Coluna Colorada</title>
         <meta name="description" content={post.attributes.slug} />
-        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+        <link
+          type="image/png"
+          sizes="16x16"
+          rel="icon"
+          href="https://res.cloudinary.com/blog-strapi-curso-js/image/upload/v1662984757/favicon_2_sh8jja.png"
+        />
       </Head>
       <Header />
       <Container>
