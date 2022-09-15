@@ -3,13 +3,15 @@ import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { PostData } from '../../domain/posts/post';
-import toUpperCase from '../../services/to-upper-case';
+// import toUpperCase from '../../services/to-upper-case';
 import {
   Container,
-  PostCategory,
-  PostContainer,
-  PostCover,
-  PostTitle,
+  LastPostContainer,
+  LastPostHeader,
+  LastPostMainContent,
+  PostGrid,
+  PostsContainer,
+  PostsMainContent,
 } from './styles';
 
 export type HomePageProps = {
@@ -21,6 +23,7 @@ export default function HomePage({ posts }: HomePageProps) {
   const handleClick = (post: PostData) => {
     router.push(`/post/${post.attributes.slug}`);
   };
+  const lastPost = posts[0];
   return (
     <>
       <Head>
@@ -38,21 +41,32 @@ export default function HomePage({ posts }: HomePageProps) {
       </Head>
       <Header />
       <Container>
-        {posts.map((post) => (
-          <>
-            <PostContainer
-              onClick={() => handleClick(post)}
-              className=".roll-in-left"
-              key={post.attributes.slug}
+        <LastPostHeader>
+          <span>Última coluna</span>
+        </LastPostHeader>
+        <PostGrid>
+          <LastPostContainer className="last-post">
+            <LastPostMainContent
+              style={{
+                backgroundImage: `url(${lastPost.attributes.cover.data.attributes.url})`,
+              }}
+              className="zoom-in"
             >
-              <PostCover src={post.attributes.cover.data.attributes.url} />
-              <PostCategory>
-                {toUpperCase(post.attributes.category.data.attributes.name)}
-              </PostCategory>
-              <PostTitle>{post.attributes.title}</PostTitle>
-            </PostContainer>
-          </>
-        ))}
+              <span>{lastPost.attributes.title}</span>
+            </LastPostMainContent>
+          </LastPostContainer>
+          {posts.slice(1, posts.length).map((post) => (
+            <PostsContainer key={post.attributes.slug}>
+              <PostsMainContent
+                style={{
+                  backgroundImage: `url(${post.attributes.cover.data.attributes.url})`,
+                }}
+              >
+                <span>{post.attributes.title}</span>
+              </PostsMainContent>
+            </PostsContainer>
+          ))}
+        </PostGrid>
       </Container>
       <Footer />
     </>

@@ -1,52 +1,155 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
+  ${({ theme }) => css`
+    width: 100%;
+    /* min-height: calc(100vh - 8.8rem); */
+    padding: ${theme.spacings.small} ${theme.spacings.large};
+    max-width: 120rem;
+    margin: 0 auto;
+
+    @media (max-width: 369px) {
+      padding: ${theme.spacings.small} ${theme.spacings.small};
+    }
+  `}
+`;
+export const LastPostHeader = styled.div`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    height: 0;
+    padding: ${theme.spacings.medium};
+    color: ${theme.colors.secondary};
+    max-width: 66.2%;
+    display: flex;
+    align-items: center;
+    span {
+      font-size: ${theme.font.sizes.medium};
+    }
+    @media (max-width: 919px) {
+      max-width: 100%;
+    }
+    @media (max-width: 720px) {
+      max-width: 49%;
+    }
+    @media (max-width: 629px) {
+      max-width: 100%;
+    } ;
+  `}
+`;
+export const LastPostContainer = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    /* margin: ${theme.spacings.small} 0; */
+    overflow: hidden;
+    transition: all 0.5s;
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+
+    @media (max-width: 919px) {
+      grid-row: 1 / 3;
+      grid-column: 1 / 3;
+    }
+
+    @media (max-width: 720px) {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    } ;
+  `}
+`;
+export const LastPostMainContent = styled.div`
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
   width: 100%;
-  min-height: calc(100vh - 8.8rem);
-  padding: ${({ theme }) => theme.spacings.large};
-  max-width: 100rem;
-  margin: 0 auto;
+  height: 100%;
+
+  &:focus,
+  &:hover {
+    &:after {
+      transform: scale(1.1);
+    }
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    font-size: 40px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    background-size: cover;
+    transform-origin: center;
+    transition: all 0.5s;
+  }
+`;
+export const PostGrid = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: ${({ theme }) => theme.spacings.medium};
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 28rem;
+  gap: ${({ theme }) => theme.spacings.small};
+  margin: ${({ theme }) => theme.spacings.small} 0;
+
+  @media (max-width: 629px) {
+    max-width: 100%;
+  } ;
 `;
 
-export const PostContainer = styled.div`
-  height: 30rem;
-  transition: all 300ms ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+export const PostsContainer = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 28rem;
+    /* margin: ${theme.spacings.small} 0; */
+    overflow: hidden;
+    transition: all 0.5s;
+  `}
+`;
+export const PostsMainContent = styled.div`
+  position: relative;
   overflow: hidden;
-  &:hover :nth-child(1) {
-    transform: rotate(1deg) scale(1.02);
-  }
-  &:hover :nth-child(2) {
-    opacity: 0.7;
-  }
-  &:hover :nth-child(3) {
-    opacity: 0.7;
-  }
-`;
-export const PostTitle = styled.h1`
-  align-self: flex-start;
-  font-size: ${({ theme }) => theme.font.sizes.large};
-  font-weight: normal;
-  max-width: 30rem;
-  transition: all 300ms ease-in-out;
-`;
-export const PostCategory = styled.p`
-  align-self: flex-start;
-  max-width: 30rem;
-  font-style: italic;
-  font-size: ${({ theme }) => theme.font.sizes.small};
-  transition: all 300ms ease-in-out;
-  margin-top: ${({ theme }) => theme.spacings.small};
-`;
-export const PostCover = styled.img`
+  background-color: #000;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   width: 100%;
-  height: 85%;
-  max-width: 45rem;
-  transition: all 300ms ease-in-out;
+  height: 100%;
+
+  &:focus,
+  &:hover {
+    &:after {
+      transform: scale(1.1);
+    }
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    background-size: cover;
+    transform-origin: center;
+    transition: all 0.5s;
+  }
 `;
