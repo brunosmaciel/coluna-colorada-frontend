@@ -45,6 +45,7 @@ export const LastPostContainer = styled.div`
     transition: all 0.5s;
     grid-row: 1 / 3;
     grid-column: 1 / 3;
+    cursor: pointer;
 
     @media (max-width: 919px) {
       grid-row: 1 / 3;
@@ -65,21 +66,18 @@ export const LastPostMainContent = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
+  padding: ${({ theme }) => theme.spacings.large};
 
   &:focus,
   &:hover {
     &:after {
       transform: scale(1.1);
     }
-  }
-
-  span {
-    position: relative;
-    z-index: 2;
-    font-size: 40px;
   }
 
   &:after {
@@ -115,6 +113,7 @@ export const PostsContainer = styled.div`
     /* margin: ${theme.spacings.small} 0; */
     overflow: hidden;
     transition: all 0.5s;
+    cursor: pointer;
   `}
 `;
 export const PostsMainContent = styled.div`
@@ -124,9 +123,13 @@ export const PostsMainContent = styled.div`
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: ${({ theme }) => theme.spacings.medium};
 
   &:focus,
   &:hover {
@@ -151,5 +154,32 @@ export const PostsMainContent = styled.div`
     background-size: cover;
     transform-origin: center;
     transition: all 0.5s;
+  }
+`;
+export const PostTitle = styled.span<{ fontSize: string }>`
+  color: white;
+  font-size: ${(props) => props.fontSize};
+  position: relative;
+  z-index: 2;
+`;
+export const PostCategory = styled.span<{ fontSize: string }>`
+  ${(props) => css`
+    color: ${props.theme.colors.secondary};
+    font-size: ${props.fontSize};
+    position: relative;
+    z-index: 2;
+  `}
+`;
+export const PostPublishDate = styled.span<{ fontSize: string }>`
+  color: white;
+  font-size: ${(props) => props.fontSize};
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+
+  span {
+    margin-right: 0.3rem;
+    align-self: center;
   }
 `;

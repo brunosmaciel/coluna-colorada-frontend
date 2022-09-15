@@ -3,15 +3,21 @@ import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { PostData } from '../../domain/posts/post';
+import toLocaleTimeString from '../../services/to-local-timeString';
+import { theme } from '../../styles/theme';
+import { BiTimeFive } from 'react-icons/bi';
 // import toUpperCase from '../../services/to-upper-case';
 import {
   Container,
   LastPostContainer,
   LastPostHeader,
   LastPostMainContent,
+  PostCategory,
   PostGrid,
+  PostPublishDate,
   PostsContainer,
   PostsMainContent,
+  PostTitle,
 } from './styles';
 
 export type HomePageProps = {
@@ -45,24 +51,51 @@ export default function HomePage({ posts }: HomePageProps) {
           <span>Última coluna</span>
         </LastPostHeader>
         <PostGrid>
-          <LastPostContainer className="last-post">
+          <LastPostContainer
+            className="last-post"
+            onClick={() => handleClick(lastPost)}
+          >
             <LastPostMainContent
               style={{
                 backgroundImage: `url(${lastPost.attributes.cover.data.attributes.url})`,
               }}
               className="zoom-in"
             >
-              <span>{lastPost.attributes.title}</span>
+              <PostTitle fontSize={theme.font.sizes.superLarge}>
+                {lastPost.attributes.title}
+              </PostTitle>
+              <PostCategory fontSize={theme.font.sizes.medium}>
+                {lastPost.attributes.category.data.attributes.name}
+              </PostCategory>
+              <PostPublishDate fontSize={theme.font.sizes.medium}>
+                <BiTimeFive size={theme.font.sizes.medium} />
+                {toLocaleTimeString(lastPost.attributes.createdAt)}
+              </PostPublishDate>
             </LastPostMainContent>
           </LastPostContainer>
+          {/* Blog posts map to render in the home page grid */}
           {posts.slice(1, posts.length).map((post) => (
-            <PostsContainer key={post.attributes.slug}>
+            <PostsContainer
+              key={post.attributes.slug}
+              onClick={() => handleClick(lastPost)}
+            >
               <PostsMainContent
                 style={{
                   backgroundImage: `url(${post.attributes.cover.data.attributes.url})`,
                 }}
               >
-                <span>{post.attributes.title}</span>
+                <PostTitle fontSize={theme.font.sizes.large}>
+                  {post.attributes.title}
+                </PostTitle>
+                <PostCategory fontSize={theme.font.sizes.small}>
+                  {post.attributes.category.data.attributes.name}
+                </PostCategory>
+                <PostPublishDate fontSize={theme.font.sizes.small}>
+                  <span>
+                    <BiTimeFive size={theme.font.sizes.small} />
+                  </span>
+                  {toLocaleTimeString(post.attributes.createdAt)}
+                </PostPublishDate>
               </PostsMainContent>
             </PostsContainer>
           ))}
