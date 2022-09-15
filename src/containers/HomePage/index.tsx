@@ -68,7 +68,9 @@ export default function HomePage({ posts }: HomePageProps) {
                 {lastPost.attributes.category.data.attributes.name}
               </PostCategory>
               <PostPublishDate fontSize={theme.font.sizes.medium}>
-                <BiTimeFive size={theme.font.sizes.medium} />
+                <span>
+                  <BiTimeFive size={theme.font.sizes.medium} />
+                </span>
                 {toLocaleTimeString(lastPost.attributes.createdAt)}
               </PostPublishDate>
             </LastPostMainContent>
