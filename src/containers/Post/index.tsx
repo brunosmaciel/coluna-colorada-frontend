@@ -32,6 +32,15 @@ export default function PostPage({ ...props }: SinglePostProps) {
       <Head>
         <title>{`${post.attributes.title} - Coluna Colorada`}</title>
         <meta name="description" content={post.attributes.slug} />
+        <meta property="og:url" content={`/posts/${post.attributes.slug}`} />
+        <meta property="og:type" content="blog" />
+
+        <meta property="og:title" content={post.attributes.title} />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Hurray!! Yes Social Media Preview is Working"
+        />
         <meta
           property="og:image"
           content={post.attributes.cover.data.attributes.url}
