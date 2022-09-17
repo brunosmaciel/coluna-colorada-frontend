@@ -37,10 +37,7 @@ export default function PostPage({ ...props }: SinglePostProps) {
 
         <meta property="og:title" content={post.attributes.title} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
-        />
+
         <meta
           property="og:image"
           content={post.attributes.cover.data.attributes.url}
