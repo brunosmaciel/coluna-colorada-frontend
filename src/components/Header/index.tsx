@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <Container>
       <Link href="/">
-        <a>Coluna Colorada nova branch</a>
+        <a>Coluna Colorada</a>
       </Link>
     </Container>
   );

@@ -158,13 +158,14 @@ export const PostsMainContent = styled.div`
 `;
 export const PostTitle = styled.span<{ fontSize: string }>`
   color: white;
-  font-size: ${(props) => props.fontSize};
+  font-size: ${({ fontSize }) => fontSize};
   position: relative;
   z-index: 2;
+  text-shadow: 1px 1px 1px black;
 `;
 export const PostCategory = styled.span<{ fontSize: string }>`
   ${(props) => css`
-    color: ${props.theme.colors.secondary};
+    color: white;
     font-size: ${props.fontSize};
     position: relative;
     z-index: 2;
@@ -176,10 +177,10 @@ export const PostPublishDate = styled.span<{ fontSize: string }>`
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: baseline;
+  /* align-items: baseline; */
 
   span {
     margin-right: 0.3rem;
-    align-self: center;
+    align-self: baseline;
   }
 `;
