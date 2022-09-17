@@ -32,7 +32,7 @@ export default function PostPage({ ...props }: SinglePostProps) {
       <Head>
         <title>{`${post.attributes.title} - Coluna Colorada`}</title>
         <meta name="description" content={post.attributes.slug} />
-        <meta property="og:url" content={`/posts/${post.attributes.slug}`} />
+        <meta property="og:url" content={`/post/${post.attributes.slug}`} />
         <meta property="og:type" content="blog" />
 
         <meta property="og:title" content={post.attributes.title} />
