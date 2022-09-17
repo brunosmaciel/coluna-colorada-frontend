@@ -16,6 +16,7 @@ import { SingleAuthor } from '../../domain/author/authors';
 import Head from 'next/head';
 
 import { Comments } from '../../components/Comments';
+import { FAVICON_URL } from '../../config/app-config';
 
 export type SinglePostProps = {
   post: PostData;
@@ -29,14 +30,13 @@ export default function PostPage({ ...props }: SinglePostProps) {
   return (
     <>
       <Head>
-        <title>{post.attributes.title} - Coluna Colorada</title>
+        <title>{`${post.attributes.title} - Coluna Colorada`}</title>
         <meta name="description" content={post.attributes.slug} />
-        <link
-          type="image/png"
-          sizes="16x16"
-          rel="icon"
-          href="https://res.cloudinary.com/blog-strapi-curso-js/image/upload/v1662984757/favicon_2_sh8jja.png"
+        <meta
+          property="og:image"
+          content={post.attributes.cover.data.attributes.url}
         />
+        <link type="image/png" sizes="16x16" rel="icon" href={FAVICON_URL} />
       </Head>
       <Header />
       <Container>
