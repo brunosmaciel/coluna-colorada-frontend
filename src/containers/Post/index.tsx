@@ -10,6 +10,7 @@ import {
   Container,
   PostContainer,
   PostDate,
+  PostTitle,
 } from './styles';
 import { GrBlog } from 'react-icons/gr';
 import { SingleAuthor } from '../../domain/author/authors';
@@ -34,10 +35,8 @@ export default function PostPage({ ...props }: SinglePostProps) {
         <meta name="description" content={post.attributes.slug} />
         <meta property="og:url" content={`/post/${post.attributes.slug}`} />
         <meta property="og:type" content="blog" />
-
         <meta property="og:title" content={post.attributes.title} />
         <meta name="twitter:card" content="summary_large_image" />
-
         <meta
           property="og:image"
           content={post.attributes.cover.data.attributes.url}
@@ -46,6 +45,7 @@ export default function PostPage({ ...props }: SinglePostProps) {
       </Head>
       <Header />
       <Container>
+        <PostTitle>{post.attributes.title}</PostTitle>
         <PostDate>
           <span>
             <GrBlog size={18} />

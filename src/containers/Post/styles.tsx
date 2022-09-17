@@ -99,3 +99,11 @@ export const AuthorDetails = styled.div`
     }
   `}
 `;
+
+export const PostTitle = styled.h1`
+  ${({ theme }) => css`
+    align-self: flex-start;
+    font-size: ${theme.font.sizes.superLarge};
+    margin-top: ${theme.spacings.medium};
+  `}
+`;
