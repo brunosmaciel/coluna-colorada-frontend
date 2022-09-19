@@ -6,6 +6,7 @@ import {
   Container,
   MainContent,
   PostCategory,
+  PostDetailsContainer,
   PostPublishDate,
   PostTitle,
 } from './styled';
@@ -23,18 +24,20 @@ export default function Post({ post, handleClick }: HomePostProps) {
           backgroundImage: `url(${post.attributes.cover.data.attributes.url})`,
         }}
       >
-        <PostTitle fontSize={theme.font.sizes.large}>
-          {post.attributes.title}
-        </PostTitle>
-        <PostCategory fontSize={theme.font.sizes.small}>
-          {post.attributes.category.data.attributes.name}
-        </PostCategory>
-        <PostPublishDate fontSize={theme.font.sizes.small}>
-          <span>
-            <BiTimeFive size={theme.font.sizes.small} />
-          </span>
-          {toLocaleTimeString(post.attributes.createdAt)}
-        </PostPublishDate>
+        <PostDetailsContainer>
+          <PostTitle fontSize={theme.font.sizes.large}>
+            {post.attributes.title}
+          </PostTitle>
+          <PostCategory fontSize={theme.font.sizes.small}>
+            {post.attributes.category.data.attributes.name}
+          </PostCategory>
+          <PostPublishDate fontSize={theme.font.sizes.small}>
+            <span>
+              <BiTimeFive size={theme.font.sizes.small} />
+            </span>
+            {toLocaleTimeString(post.attributes.createdAt)}
+          </PostPublishDate>
+        </PostDetailsContainer>
       </MainContent>
     </Container>
   );

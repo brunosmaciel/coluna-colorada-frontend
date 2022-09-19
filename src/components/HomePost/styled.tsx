@@ -1,3 +1,4 @@
+import { BiTimeFive } from 'react-icons/bi';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
@@ -50,12 +51,19 @@ export const MainContent = styled.div`
     transition: all 0.5s;
   }
 `;
+export const PostDetailsContainer = styled.span`
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 export const PostTitle = styled.span<{ fontSize: string }>`
   color: white;
   font-size: ${({ fontSize }) => fontSize};
   position: relative;
   z-index: 2;
   text-shadow: 1px 1px 1px black;
+  margin-bottom: 0.5rem;
 `;
 export const PostCategory = styled.span<{ fontSize: string }>`
   ${(props) => css`
@@ -63,6 +71,7 @@ export const PostCategory = styled.span<{ fontSize: string }>`
     font-size: ${props.fontSize};
     position: relative;
     z-index: 2;
+    margin-bottom: 0.5rem;
   `}
 `;
 export const PostPublishDate = styled.span<{ fontSize: string }>`
@@ -77,4 +86,9 @@ export const PostPublishDate = styled.span<{ fontSize: string }>`
     margin-right: 0.3rem;
     align-self: baseline;
   }
+`;
+export const Clock = styled(BiTimeFive)`
+  align-self: baseline;
+  margin-right: 0.5rem;
+  font-size: ${({ theme }) => theme.font.sizes.small};
 `;

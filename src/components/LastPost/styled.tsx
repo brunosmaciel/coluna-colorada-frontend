@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { BiTimeFive } from 'react-icons/bi';
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -35,7 +36,7 @@ export const MainContent = styled.div`
   justify-content: flex-end;
   width: 100%;
   height: 100%;
-  padding: ${({ theme }) => theme.spacings.large};
+  padding: ${({ theme }) => theme.spacings.medium};
 
   &:focus,
   &:hover {
@@ -57,31 +58,59 @@ export const MainContent = styled.div`
     transition: all 0.5s;
   }
 `;
-export const PostTitle = styled.span<{ fontSize: string }>`
-  color: white;
-  font-size: ${({ fontSize }) => fontSize};
-  position: relative;
-  z-index: 2;
-  text-shadow: 1px 1px 1px black;
-`;
-export const PostCategory = styled.span<{ fontSize: string }>`
-  ${(props) => css`
-    color: white;
-    font-size: ${props.fontSize};
-    position: relative;
-    z-index: 2;
-  `}
-`;
-export const PostPublishDate = styled.span<{ fontSize: string }>`
-  color: white;
-  font-size: ${(props) => props.fontSize};
-  position: relative;
+
+export const PostDetailsContainer = styled.span`
   z-index: 2;
   display: flex;
-  /* align-items: baseline; */
+  flex-direction: column;
+  justify-content: space-between;
+`;
+export const PostTitle = styled.span`
+  ${({ theme }) => css`
+    color: white;
+    font-size: ${theme.font.sizes.superLarge};
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 1px black;
+    margin-bottom: 0.5rem;
 
-  span {
-    margin-right: 0.3rem;
-    align-self: baseline;
-  }
+    @media (max-width: 720px) {
+      font-size: ${theme.font.sizes.medium};
+    } ;
+  `}
+`;
+export const PostCategory = styled.span`
+  ${({ theme }) => css`
+    color: white;
+    font-size: ${theme.font.sizes.medium};
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 720px) {
+      font-size: ${theme.font.sizes.small};
+    } ;
+  `}
+`;
+export const PostPublishDate = styled.div`
+  ${({ theme }) => css`
+    color: white;
+    font-size: ${theme.font.sizes.medium};
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    @media (max-width: 720px) {
+      font-size: ${theme.font.sizes.small};
+    } ;
+  `}
+`;
+export const Clock = styled(BiTimeFive)`
+  align-self: baseline;
+  margin-right: 0.5rem;
+  font-size: ${({ theme }) => theme.font.sizes.large};
+
+  @media (max-width: 720px) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
+  } ;
 `;
