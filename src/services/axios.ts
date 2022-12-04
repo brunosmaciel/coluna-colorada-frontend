@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL } from '../config/app-config';
 export default axios.create({
-  baseURL: 'https://desolate-citadel-62765.herokuapp.com/api',
+  baseURL: BASE_URL,
 });

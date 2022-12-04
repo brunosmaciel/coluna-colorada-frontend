@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://desolate-citadel-62765.herokuapp.com/api';
+export const BASE_URL =
+  'https://coluna-colorada-api-strapi-v4-production.up.railway.app/api';
 export const POSTS_URL = `${BASE_URL}/posts`;
 export const AUTHOR_URL = `${BASE_URL}/author`;
 
