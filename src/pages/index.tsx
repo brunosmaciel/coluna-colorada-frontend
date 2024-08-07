@@ -1,7 +1,6 @@
-import { GetStaticProps } from 'next';
-import { getAllPosts } from '../services/posts/get-all-posts';
+
 import { PostData } from '../domain/posts/post';
-import HomePage from '../containers/HomePage';
+
 
 export type PostsProps = {
   posts: PostData[];
